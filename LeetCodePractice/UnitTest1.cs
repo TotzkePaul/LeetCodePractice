@@ -54,7 +54,7 @@ namespace LeetCodePractice
                 new List<int> {-1, 0, 1},
                 new List<int> { -1, -1, 2 }
             };
-            Assert.Equal( expected,ans);
+            Assert.Equal(expected, ans);
         }
 
         // 10. Regular Expression Matching https://leetcode.com/problems/regular-expression-matching/
@@ -150,7 +150,7 @@ namespace LeetCodePractice
         ///     The input array may contain duplicates, so ascending order here means <=.
         /// </summary>
         [Theory]
-        [InlineData(new int[] { 2, 6, 4, 8, 10, 9, 15 }, 5)] 
+        [InlineData(new int[] { 2, 6, 4, 8, 10, 9, 15 }, 5)]
         public void ShortestUnsortedContinuousSubarray(int[] nums, int expected)
         {
             int ans = 0;
@@ -233,8 +233,8 @@ namespace LeetCodePractice
         /// Your algorithm's runtime complexity must be in the order of O(log n).
         /// </summary>
         [Theory]
-        [InlineData(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 0, 4)] 
-        [InlineData(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 3, -1)] 
+        [InlineData(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 0, 4)]
+        [InlineData(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 3, -1)]
         public void SearchInRotatedSortedArray(int[] nums, int target, int expected)
         {
             int ans = 0;
@@ -278,10 +278,10 @@ namespace LeetCodePractice
 
         public static IEnumerable<object[]> GetWordSearchData()
         {
-            var board = new char[][] { 
-                new char[] { 'A', 'B', 'C', 'E' }, 
-                new char[] { 'S', 'F', 'C', 'S' }, 
-                new char[] { 'A', 'D', 'E', 'E' } 
+            var board = new char[][] {
+                new char[] { 'A', 'B', 'C', 'E' },
+                new char[] { 'S', 'F', 'C', 'S' },
+                new char[] { 'A', 'D', 'E', 'E' }
             };
 
             return new[]
@@ -374,9 +374,9 @@ namespace LeetCodePractice
 
         public static IEnumerable<object[]> GetMergeIntervalsData()
         {
-            var input1 = new int[][] { new [] { 1, 3 }, new [] { 2, 6 }, new [] { 8, 10 }, new [] { 15, 18 } };
-            var output1 = new int[][] { new [] { 1, 6 }, new int[] { 8, 10 }, new [] { 15, 18 } };
-            var input2 = new int[][] { new [] { 1, 4 }, new [] { 4, 5 } };
+            var input1 = new int[][] { new[] { 1, 3 }, new[] { 2, 6 }, new[] { 8, 10 }, new[] { 15, 18 } };
+            var output1 = new int[][] { new[] { 1, 6 }, new int[] { 8, 10 }, new[] { 15, 18 } };
+            var input2 = new int[][] { new[] { 1, 4 }, new[] { 4, 5 } };
             var output2 = new int[][] { new int[] { 1, 5 } };
 
             return new[]
@@ -496,5 +496,234 @@ namespace LeetCodePractice
         }
 
         // 207. Course Schedule https://leetcode.com/problems/course-schedule/
+        /// <summary>
+        /// There are a total of numCourses courses you have to take, labeled from 0 to numCourses-1.
+        /// Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]
+        /// Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
+        /// Constraints:
+        ///     The input prerequisites is a graph represented by a list of edges, not adjacency matrices.Read more about how a graph is represented.
+        ///     You may assume that there are no duplicate edges in the input prerequisites.
+        ///     1 <= numCourses <= 10^5
+        /// </summary>
+        [Theory]
+        [MemberData(nameof(GetCourseScheduleData))]
+        public void CourseSchedule(int numCourses, int[][] prerequisites, bool expected)
+        {
+            bool ans = false;
+
+            Assert.Equal(expected, ans);
+        }
+
+        public static IEnumerable<object[]> GetCourseScheduleData()
+        {
+            return new[]
+            {
+                new object[] { 2, new int[][] { new[] { 1, 0} }, true }, // Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible.
+                new object[] { 2, new int[][] { new[] { 1, 0}, new[] { 0, 1} }, false } // Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
+            };
+        }
+
+        // 72. Edit Distance https://leetcode.com/problems/edit-distance/
+        /// <summary>
+        /// Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.
+        /// You have the following 3 operations permitted on a word:
+        ///     Insert a character
+        ///     Delete a character
+        ///     Replace a character
+        /// </summary>
+        [Theory]
+        [InlineData("horse", "ros", 3)] // Explanation: horse -> rorse(replace 'h' with 'r') -> rose(remove 'r') -> ros(remove 'e')
+        [InlineData("intention", "execution", 5)] // Explanation: intention -> inention(remove 't') -> enention(replace 'i' with 'e')  -> exention(replace 'n' with 'x') -> exection(replace 'n' with 'c')  -> execution(insert 'u')
+        public void EditDistance(string s, string p, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 198. House Robber https://leetcode.com/problems/house-robber/
+        [Theory]
+        [InlineData(new int[] { 1, 2, 3, 1 }, 4)] // Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3). Total amount you can rob = 1 + 3 = 4.
+        [InlineData(new int[] { 2, 7, 9, 3, 1 }, 12)] // Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1). Total amount you can rob = 2 + 9 + 1 = 12.
+        public void HouseRobber(int[] nums, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 301. Remove Invalid Parentheses https://leetcode.com/problems/remove-invalid-parentheses/
+        // Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
+        // Note: The input string may contain letters other than the parentheses(and ).
+        [Theory]
+        [MemberData(nameof(GetRemoveInvalidParenthesesData))]
+        public void RemoveInvalidParentheses(string s, IList<string> expected)
+        {
+            IList<string> ans = null;
+
+            Assert.Equal(expected, ans);
+        }
+
+        public static IEnumerable<object[]> GetRemoveInvalidParenthesesData()
+        {
+            return new[]
+            {
+                new object[] { "()())()", new List<string> { "()()()", "(())()" } },
+                new object[] { "(a)())()", new List<string> { "(a)()()", "(a())()" } },
+                new object[] { ")(", new List<string> { "" } }
+            };
+        }
+
+        // 300. Longest Increasing Subsequence https://leetcode.com/problems/longest-increasing-subsequence/
+        // Given an unsorted array of integers, find the length of longest increasing subsequence.
+        // Note:
+        //      There may be more than one LIS combination, it is only necessary for you to return the length.
+        //      Your algorithm should run in O(n^2) complexity.
+        // Follow up: Could you improve it to O(n log n) time complexity?
+        [Theory]
+        [InlineData(new int[] { 10, 9, 2, 5, 3, 7, 101, 18 }, 4)] // Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4. 
+        public void LongestIncreasingSubsequence(int[] heights, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 416. Partition Equal Subset Sum https://leetcode.com/problems/partition-equal-subset-sum/
+        // Given a non-empty array containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
+        // Note:
+        //      Each of the array element will not exceed 100.
+        //      The array size will not exceed 200.
+        [Theory]
+        [InlineData(new int[] { 1, 5, 11, 5 }, true)] // Explanation: The array can be partitioned as [1, 5, 5] and [11].
+        [InlineData(new int[] { 1, 2, 3, 5 }, false)] // Explanation: The array cannot be partitioned into equal sum subsets.
+        public void PartitionEqualSubsetSum(int[] nums, bool expected)
+        {
+            bool ans = false;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 240. Search a 2D Matrix II https://leetcode.com/problems/search-a-2d-matrix-ii/
+        // Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+        // Integers in each row are sorted in ascending from left to right.
+        // Integers in each column are sorted in ascending from top to bottom.
+        [Theory]
+        [MemberData(nameof(GetSearchA2DMatrixIIData))]
+        public void SearchA2DMatrixII(int[,] matrix, int target, bool expected)
+        {
+            bool ans = false;
+
+            Assert.Equal(expected, ans);
+        }
+
+        public static IEnumerable<object[]> GetSearchA2DMatrixIIData()
+        {
+            int[,] matrix = new int[,]
+            {
+                  {1,   4,  7,  11, 15},
+                  {2,   5,  8,  12, 19},
+                  {3,   6,  9,  16, 22},
+                  {10,  13, 14, 17, 24},
+                  {18,  21, 23, 26, 30}
+            };
+            return new[]
+            {
+                new object[] { matrix, 5, true},
+                new object[] { matrix, 20, false},
+            };
+        }
+
+
+        // 560. Subarray Sum Equals K https://leetcode.com/problems/subarray-sum-equals-k/
+        // Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
+        // Note:
+        //      The length of the array is in range[1, 20, 000].
+        //      The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
+        [Theory]
+        [InlineData(new int[] { 1, 1, 1 }, 2, 2)]
+        public void SubarraySumEqualsK(int[] nums, int k, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 128. Longest Consecutive Sequence https://leetcode.com/problems/longest-consecutive-sequence/
+        // Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
+        // Your algorithm should run in O(n) complexity.
+        [Theory]
+        [InlineData(new int[] { 100, 4, 200, 1, 3, 2 }, 4)] // Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+        public void LongestConsecutiveSequence(int[] heights, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 279. Perfect Squares https://leetcode.com/problems/perfect-squares/
+        // Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
+        [Theory]
+        [InlineData(12, 3)] // Explanation: 12 = 4 + 4 + 4.
+        [InlineData(13, 2)] // Explanation: 13 = 4 + 9.
+        public void PerfectSquares(int n, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 75. Sort Colors https://leetcode.com/problems/sort-colors/
+        /// <summary>
+        /// Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+        /// Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+        /// Note: You are not suppose to use the library's sort function for this problem.
+        /// Follow up:
+        ///     A rather straight forward solution is a two-pass algorithm using counting sort.
+        ///     First, iterate the array counting number of 0's, 1's, and 2's, then overwrite array with total number of 0's, then 1's and followed by 2's.
+        ///     Could you come up with a one-pass algorithm using only constant space?
+        /// </summary>
+        [Theory]
+        [InlineData(new [] { 2, 0, 2, 1, 1, 0 }, new [] { 0, 0, 1, 1, 2, 2 })] 
+        public void SortColors(int[] nums, int[] expected)
+        {
+            int[] ans = nums;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        [Theory]
+        [MemberData(nameof(GetNumberOfIslandsData))]
+        public void NumberOfIslands(char[][] grid, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        public static IEnumerable<object[]> GetNumberOfIslandsData()
+        {
+            var grid1 = new char[][] {
+                new char[] { '1', '1', '1', '1', '0' },
+                new char[] { '1', '1', '0', '1', '0' },
+                new char[] { '1', '1', '0', '0', '0' },
+                new char[] { '0', '0', '0', '0', '0' }
+            };
+
+            var grid2 = new char[][] {
+                new char[] { '1', '1', '0', '0', '0' },
+                new char[] { '1', '1', '0', '0', '0' },
+                new char[] { '0', '0', '1', '0', '0' },
+                new char[] { '0', '0', '0', '1', '1' }
+            };
+
+            return new[]
+            {
+                new object[] { grid1, 1 },
+                new object[] { grid2, 3 }
+            };
+        }
     }
 }
