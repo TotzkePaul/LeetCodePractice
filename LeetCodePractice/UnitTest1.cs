@@ -60,10 +60,10 @@ namespace LeetCodePractice
         // 10. Regular Expression Matching https://leetcode.com/problems/regular-expression-matching/
         [Theory]
         [InlineData("aa", "a", false)]
-        [InlineData("aa", "a*", true)]
-        [InlineData("ab", ".*", true)]
-        [InlineData("aab", "c*a*b", true)]
-        [InlineData("mississippi", "mis*is*p*.", false)]
+        //[InlineData("aa", "a*", true)]
+        //[InlineData("ab", ".*", true)]
+        //[InlineData("aab", "c*a*b", true)]
+        //[InlineData("mississippi", "mis*is*p*.", false)]
         public void RegularExpressionMatching(string s, string p, bool expected)
         {
             bool ans = false;
@@ -75,7 +75,7 @@ namespace LeetCodePractice
         // 32. Longest Valid Parentheses https://leetcode.com/problems/longest-valid-parentheses/
         [Theory]
         [InlineData("(()", 2)] // Explanation: The longest valid parentheses substring is "()"
-        [InlineData(")()())", 4)] // Explanation: The longest valid parentheses substring is "()()"
+        //[InlineData(")()())", 4)] // Explanation: The longest valid parentheses substring is "()()"
         public void LongestValidParentheses(string s, int expected)
         {
             int ans = 0;
@@ -91,7 +91,7 @@ namespace LeetCodePractice
         /// </summary>
         [Theory]
         [InlineData(new int[] { 1, 3 }, new int[] { 2 }, 2.0)] // The median is 2.0
-        [InlineData(new int[] { 1, 2 }, new int[] { 3, 4 }, 2.5)] // The median is (2 + 3)/2 = 2.5
+        //[InlineData(new int[] { 1, 2 }, new int[] { 3, 4 }, 2.5)] // The median is (2 + 3)/2 = 2.5
         public void MedianOfTwoSortedArrays(int[] nums1, int[] nums2, double expected)
         {
             double ans = 0.0;
@@ -104,7 +104,7 @@ namespace LeetCodePractice
         // Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
         [Theory]
         [InlineData("babad", "bab")] // Note: "aba" is also a valid answer.
-        [InlineData("cbbd", "bb")]
+        //[InlineData("cbbd", "bb")]
         public void LongestPalindromicSubstring(string s, string expected)
         {
             string ans = "";
@@ -116,8 +116,8 @@ namespace LeetCodePractice
         // Given a string, find the length of the longest substring without repeating characters.
         [Theory]
         [InlineData("abcabcbb", 3)] // Explanation: The answer is "abc", with the length of 3. 
-        [InlineData("bbbbb", 1)] // Explanation: The answer is "b", with the length of 1.
-        [InlineData("pwwkew", 3)] // Explanation: The answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+        //[InlineData("bbbbb", 1)] // Explanation: The answer is "b", with the length of 1.
+        //[InlineData("pwwkew", 3)] // Explanation: The answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
         public void LongestSubstringWithoutRepeatingCharacters(string s, int expected)
         {
             int ans = 0;
@@ -163,8 +163,8 @@ namespace LeetCodePractice
         // Note: Your algorithm should run in O(n) time and uses constant extra space.
         [Theory]
         [InlineData(new int[] { 1, 2, 0 }, 3)]
-        [InlineData(new int[] { 3, 4, -1, 1 }, 2)]
-        [InlineData(new int[] { 7, 8, 9, 11, 12 }, 1)]
+        //[InlineData(new int[] { 3, 4, -1, 1 }, 2)]
+        //[InlineData(new int[] { 7, 8, 9, 11, 12 }, 1)]
         public void FirstMissingPositive(int[] nums, int expected)
         {
             int ans = 0;
@@ -176,7 +176,7 @@ namespace LeetCodePractice
         // Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.
         [Theory]
         [InlineData(new int[] { 2, 3, -2, 4 }, 6)] // Explanation: [2,3] has the largest product 6.
-        [InlineData(new int[] { -2, 0, -1 }, 0)] // Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
+        //[InlineData(new int[] { -2, 0, -1 }, 0)] // Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
         public void MaximumProductSubarray(int[] nums, int expected)
         {
             int ans = 0;
@@ -192,7 +192,7 @@ namespace LeetCodePractice
         /// </summary>
         [Theory]
         [InlineData(new int[] { 2, 3, 1, 1, 4 }, true)] // Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
-        [InlineData(new int[] { 3, 2, 1, 0, 4 }, false)] // Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+        //[InlineData(new int[] { 3, 2, 1, 0, 4 }, false)] // Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
         public void JumpGameI(int[] nums, bool expected)
         {
             bool ans = false;
@@ -234,7 +234,7 @@ namespace LeetCodePractice
         /// </summary>
         [Theory]
         [InlineData(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 0, 4)]
-        [InlineData(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 3, -1)]
+        //[InlineData(new int[] { 4, 5, 6, 7, 0, 1, 2 }, 3, -1)]
         public void SearchInRotatedSortedArray(int[] nums, int target, int expected)
         {
             int ans = 0;
@@ -248,7 +248,7 @@ namespace LeetCodePractice
         // If that amount of money cannot be made up by any combination of the coins, return -1.
         [Theory]
         [InlineData(new int[] { 1, 2, 5 }, 11, 3)]
-        [InlineData(new int[] { 2 }, 3, -1)]
+        //[InlineData(new int[] { 2 }, 3, -1)]
         public void CoinChange(int[] coins, int amount, int expected)
         {
             int ans = 0;
@@ -287,8 +287,8 @@ namespace LeetCodePractice
             return new[]
             {
                 new object[] { board, "ABCCED", true },
-                new object[] { board, "SEE", true },
-                new object[] { board, "ABCB", false }
+                //new object[] { board, "SEE", true },
+                //new object[] { board, "ABCB", false }
             };
         }
 
@@ -300,7 +300,7 @@ namespace LeetCodePractice
         /// </summary>
         [Theory]
         [InlineData(new int[] { 5, 7, 7, 8, 8, 10 }, 8, new int[] { 3, 4 })]
-        [InlineData(new int[] { 5, 7, 7, 8, 8, 10 }, 6, new int[] { -1, -1 })]
+        //[InlineData(new int[] { 5, 7, 7, 8, 8, 10 }, 6, new int[] { -1, -1 })]
         public void FindFirstAndLastPositionOfElementInSortedArray(int[] nums, int target, int[] expected)
         {
             int[] ans = null;
@@ -382,7 +382,7 @@ namespace LeetCodePractice
             return new[]
             {
                 new object[] { input1, output1 }, // Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
-                new object[] { input2, output2 }  // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+                //new object[] { input2, output2 }  // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
             };
         }
 
@@ -413,10 +413,10 @@ namespace LeetCodePractice
         /// </summary>
         [Theory]
         [InlineData("()", true)]
-        [InlineData("()[]{}", true)]
-        [InlineData("(]", false)]
-        [InlineData("([)]", false)]
-        [InlineData("{[]}", true)]
+        //[InlineData("()[]{}", true)]
+        //[InlineData("(]", false)]
+        //[InlineData("([)]", false)]
+        //[InlineData("{[]}", true)]
         public void ValidParentheses(string s, bool expected)
         {
             bool ans = false;
@@ -519,7 +519,7 @@ namespace LeetCodePractice
             return new[]
             {
                 new object[] { 2, new int[][] { new[] { 1, 0} }, true }, // Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible.
-                new object[] { 2, new int[][] { new[] { 1, 0}, new[] { 0, 1} }, false } // Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
+                //new object[] { 2, new int[][] { new[] { 1, 0}, new[] { 0, 1} }, false } // Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
             };
         }
 
@@ -533,7 +533,7 @@ namespace LeetCodePractice
         /// </summary>
         [Theory]
         [InlineData("horse", "ros", 3)] // Explanation: horse -> rorse(replace 'h' with 'r') -> rose(remove 'r') -> ros(remove 'e')
-        [InlineData("intention", "execution", 5)] // Explanation: intention -> inention(remove 't') -> enention(replace 'i' with 'e')  -> exention(replace 'n' with 'x') -> exection(replace 'n' with 'c')  -> execution(insert 'u')
+        //[InlineData("intention", "execution", 5)] // Explanation: intention -> inention(remove 't') -> enention(replace 'i' with 'e')  -> exention(replace 'n' with 'x') -> exection(replace 'n' with 'c')  -> execution(insert 'u')
         public void EditDistance(string s, string p, int expected)
         {
             int ans = 0;
@@ -544,7 +544,7 @@ namespace LeetCodePractice
         // 198. House Robber https://leetcode.com/problems/house-robber/
         [Theory]
         [InlineData(new int[] { 1, 2, 3, 1 }, 4)] // Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3). Total amount you can rob = 1 + 3 = 4.
-        [InlineData(new int[] { 2, 7, 9, 3, 1 }, 12)] // Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1). Total amount you can rob = 2 + 9 + 1 = 12.
+        //[InlineData(new int[] { 2, 7, 9, 3, 1 }, 12)] // Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1). Total amount you can rob = 2 + 9 + 1 = 12.
         public void HouseRobber(int[] nums, int expected)
         {
             int ans = 0;
@@ -596,7 +596,7 @@ namespace LeetCodePractice
         //      The array size will not exceed 200.
         [Theory]
         [InlineData(new int[] { 1, 5, 11, 5 }, true)] // Explanation: The array can be partitioned as [1, 5, 5] and [11].
-        [InlineData(new int[] { 1, 2, 3, 5 }, false)] // Explanation: The array cannot be partitioned into equal sum subsets.
+        //[InlineData(new int[] { 1, 2, 3, 5 }, false)] // Explanation: The array cannot be partitioned into equal sum subsets.
         public void PartitionEqualSubsetSum(int[] nums, bool expected)
         {
             bool ans = false;
@@ -631,7 +631,7 @@ namespace LeetCodePractice
             return new[]
             {
                 new object[] { matrix, 5, true},
-                new object[] { matrix, 20, false},
+                //new object[] { matrix, 20, false},
             };
         }
 
@@ -666,7 +666,7 @@ namespace LeetCodePractice
         // Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
         [Theory]
         [InlineData(12, 3)] // Explanation: 12 = 4 + 4 + 4.
-        [InlineData(13, 2)] // Explanation: 13 = 4 + 9.
+        //[InlineData(13, 2)] // Explanation: 13 = 4 + 9.
         public void PerfectSquares(int n, int expected)
         {
             int ans = 0;
@@ -693,7 +693,12 @@ namespace LeetCodePractice
             Assert.Equal(expected, ans);
         }
 
-
+        // 200. Number of Islands https://leetcode.com/problems/number-of-islands/
+        /// <summary>
+        /// Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
+        /// An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. 
+        /// You may assume all four edges of the grid are all surrounded by water.
+        /// </summary>
         [Theory]
         [MemberData(nameof(GetNumberOfIslandsData))]
         public void NumberOfIslands(char[][] grid, int expected)
@@ -722,8 +727,347 @@ namespace LeetCodePractice
             return new[]
             {
                 new object[] { grid1, 1 },
-                new object[] { grid2, 3 }
+                //new object[] { grid2, 3 }
             };
+        }
+
+        // 338. Counting Bits https://leetcode.com/problems/counting-bits/
+        /// <summary>
+        /// Given a non negative integer number num. For every numbers i in the range 0 ? i ? num calculate the number of 1's in their binary representation and return them as an array.
+        /// Follow up:
+        ///     It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?
+        ///     Space complexity should be O(n).
+        ///     Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.
+        /// </summary>
+        [Theory]
+        [InlineData(2, new [] { 0, 1, 1 })]
+        //[InlineData(5, new [] { 0, 1, 1, 2, 1, 2 })]
+        public void CountingBits(int num, int[] expected)
+        {
+            int[] ans = null;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 136. Single Number https://leetcode.com/problems/single-number/
+        // Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+        //Note:
+        //      Your algorithm should have a linear runtime complexity.Could you implement it without using extra memory?
+        [Theory]
+        [InlineData(new[] { 2, 2, 1 }, 1)]
+        //[InlineData(new[] { 4, 1, 2, 1, 2 }, 4)]
+        public void SingleNumber(int[] nums, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 739. Daily Temperatures https://leetcode.com/problems/daily-temperatures/
+        /// <summary>
+        /// Given a list of daily temperatures T, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. 
+        /// If there is no future day for which this is possible, put 0 instead.
+        /// For example, given the list of temperatures T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be[1, 1, 4, 2, 1, 1, 0, 0].
+        /// Note: The length of temperatures will be in the range[1, 30000]. Each temperature will be an integer in the range[30, 100].
+        /// </summary>
+        [Theory]
+        [InlineData(new [] { 73, 74, 75, 71, 69, 72, 76, 73 }, new[] { 1, 1, 4, 2, 1, 1, 0, 0 })]
+        public void DailyTemperatures(int[] T, int[] expected)
+        {
+            int[] ans = T;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 647. Palindromic Substrings https://leetcode.com/problems/palindromic-substrings/
+        // Given a string, your task is to count how many palindromic substrings in this string.
+        // The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.
+        // Note: The input string length won't exceed 1000.
+        [Theory]
+        [InlineData("abc", 3)] // Explanation: Three palindromic strings: "a", "b", "c".
+        //[InlineData("aaa", 6)] // Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+        public void PalindromicSubstrings(string s, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 238. Product of Array Except Self https://leetcode.com/problems/product-of-array-except-self/
+        /// <summary>
+        /// Given an array nums of n integers where n > 1,  return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
+        /// Constraint: It's guaranteed that the product of the elements of any prefix or suffix of the array (including the whole array) fits in a 32 bit integer.
+        /// Note: Please solve it *without division* and in O(n).
+        /// Follow up:
+        /// Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
+        /// </summary>
+        [Theory]
+        [InlineData(new[] { 1, 2, 3, 4 }, new[] { 24, 12, 8, 6 })] 
+        public void ProductOfArrayExceptSelf(int[] nums, int[] expected)
+        {
+            int[] ans = null;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 283. Move Zeroes https://leetcode.com/problems/move-zeroes/
+        // Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+        // Note:
+        //      You must do this in-place without making a copy of the array.
+        //      Minimize the total number of operations.
+        [Theory]
+        [InlineData(new[] { 0, 1, 0, 3, 12 }, new[] { 241, 3, 12, 0, 0 })]
+        public void MoveZeroes(int[] nums, int[] expected)
+        {
+            int[] ans = null;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 169. Majority Element https://leetcode.com/problems/majority-element/
+        // Given an array of size n, find the majority element. The majority element is the element that appears more than ? n/2 ? times.
+        // You may assume that the array is non-empty and the majority element always exist in the array.
+        [Theory]
+        [InlineData(new[] { 3, 2, 3 }, 3)]
+        //[InlineData(new[] { 2, 2, 1, 1, 1, 2, 2 }, 2)]
+        public void MajorityElement(int[] nums, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 62. Unique Paths https://leetcode.com/problems/unique-paths/
+        // A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
+        // The robot can only move either down or right at any point in time.The robot is trying to reach the bottom-right corner of the grid(marked 'Finish' in the diagram below).
+        // How many possible unique paths are there?
+        // Constraints:
+        //      1 <= m, n <= 100
+        //      It's guaranteed that the answer will be less than or equal to 2 * 10 ^ 9.
+        [Theory]
+        [InlineData(3, 2, 3)]
+        //[InlineData(7, 3, 28)]
+        public void UniquePaths(int m, int n, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 312. Burst Balloons https://leetcode.com/problems/burst-balloons/
+        /// <summary>
+        /// Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. 
+        /// If the you burst balloon i you will get nums[left] * nums[i] * nums[right] coins. Here left and right are adjacent indices of i. After the burst, the left and right then becomes adjacent.
+        /// Find the maximum coins you can collect by bursting the balloons wisely.
+        /// Note:
+        ///     You may imagine nums[-1] = nums[n] = 1.They are not real therefore you can not burst them.
+        ///     0 ? n ? 500, 0 ? nums[i] ? 100
+        /// </summary>
+        [Theory]
+        [InlineData(new[] { 3, 1, 5, 8 }, 167)] // Explanation: nums = [3,1,5,8] --> [3,5,8] -->   [3,8]   -->  [8]  --> [] // coins =  3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167
+        public void BurstBalloons(int[] nums, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 96. Unique Binary Search Trees https://leetcode.com/problems/unique-binary-search-trees/
+        // Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
+        // Given n = 3, there are a total of 5 unique BST's:
+        //    1         3     3      2      1
+        //     \       /     /      / \      \
+        //      3     2     1      1   3      2
+        //     /     /       \                 \
+        //    2     1         2                 3
+        [Theory]
+        [InlineData(3, 5)]
+        public void UniqueBinarySearchTrees(int n, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 121. Best Time to Buy and Sell Stock https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+        /// <summary>
+        /// Say you have an array for which the i^th element is the price of a given stock on day i.
+        /// If you were only permitted to complete at most one transaction(i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+        /// Note that you cannot sell a stock before you buy one.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="expected"></param>
+        [Theory]
+        [InlineData(new[] { 7, 1, 5, 3, 6, 4 }, 5)] // Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5. Not 7-1 = 6, as selling price needs to be larger than buying price.
+        //[InlineData(new[] { 7, 6, 4, 3, 1 }, 0)] // Explanation: In this case, no transaction is done, i.e. max profit = 0.
+        public void BestTimeToBuyAndSellStock(int[] nums, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 394. Decode String https://leetcode.com/problems/decode-string/
+        /// <summary>
+        /// Given an encoded string, return its decoded string.
+        /// The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times.Note that k is guaranteed to be a positive integer.
+        /// You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.
+        /// Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k.For example, there won't be input like 3a or 2[4].
+        /// </summary>
+        [Theory]
+        [InlineData("3[a]2[bc]", "aaabcbc")]
+        //[InlineData("3[a2[c]]", "accaccacc")]
+        //[InlineData("2[abc]3[cd]ef", "abcabccdcdcdef")]
+        public void DecodeString(string s, string expected)
+        {
+            string ans = null;
+
+            Assert.Equal(expected, ans);
+        }
+
+        // 621. Task Scheduler https://leetcode.com/problems/task-scheduler/
+        /// <summary>
+        /// Given a char array representing tasks CPU need to do. It contains capital letters A to Z where different letters represent different tasks. 
+        /// Tasks could be done without original order. Each task could be done in one interval. For each interval, CPU could finish one task or just be idle.
+        /// However, there is a non-negative cooling interval n that means between two same tasks, there must be at least n intervals that CPU are doing different tasks or just be idle.
+        /// You need to return the least number of intervals the CPU will take to finish all the given tasks.
+        /// </summary>
+        [Theory]
+        [InlineData(new char[] { 'A','A','A','B','B','B'}, 2, 8)] // Explanation: A -> B -> idle -> A -> B -> idle -> A -> B.
+        public void TaskScheduler(char[] tasks, int n, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 42. Trapping Rain Water https://leetcode.com/problems/trapping-rain-water/
+        // Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+        [Theory]
+        [InlineData(new [] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 }, 6)] 
+        public void TrappingRainWater(int[] height, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 11. Container With Most Water https://leetcode.com/problems/container-with-most-water/
+        /// <summary>
+        /// Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). 
+        /// n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+        /// Note: You may not slant the container and n is at least 2.
+        /// </summary>
+        [Theory]
+        [InlineData(new[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 }, 49)]
+        public void ContainerWithMostWater(int[] height, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 287. Find the Duplicate Number
+        /// <summary>
+        /// Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
+        /// Note:
+        ///     You must not modify the array(assume the array is read only).
+        ///     You must use only constant, O(1) extra space.
+        ///     Your runtime complexity should be less than O(n^2).
+        ///     There is only one duplicate number in the array, but it could be repeated more than once.
+        /// </summary>
+        [Theory]
+        [InlineData(new[] { 1, 3, 4, 2, 2 }, 2)]
+        //[InlineData(new[] { 3, 1, 3, 4, 2 }, 3)]
+        public void FindTheDuplicateNumber(int[] nums, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 494. Target Sum https://leetcode.com/problems/target-sum/
+        /// <summary>
+        /// You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
+        /// Find out how many ways to assign symbols to make sum of integers equal to target S.
+        /// Note:
+        ///     The length of the given array is positive and will not exceed 20.
+        ///     The sum of elements in the given array will not exceed 1000.
+        ///     Your output answer is guaranteed to be fitted in a 32-bit integer.
+        /// </summary>
+        [Theory]
+        [InlineData(new[] { 1, 1, 1, 1, 1 }, 3, 5)]
+        public void TargetSum(int[] nums, int s, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 70. Climbing Stairs https://leetcode.com/problems/climbing-stairs/
+        // You are climbing a stair case. It takes n steps to reach to the top.
+        // Each time you can either climb 1 or 2 steps.In how many distinct ways can you climb to the top?
+        // Note: Given n will be a positive integer.
+        [Theory]
+        [InlineData(2, 2)] // Explanation: There are two ways to climb to the top. 1. 1 step + 1 step 2. 2 steps
+        //[InlineData(3, 3)] // Explanation: There are three ways to climb to the top. 1. 1 step + 1 step + 1 step 2. 1 step + 2 steps 3. 2 steps + 1 step
+        public void ClimbingStairs(int n, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 53. Maximum Subarray https://leetcode.com/problems/maximum-subarray/
+        // Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+        // Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+        [Theory]
+        [InlineData(new[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }, 6)] // Explanation: [4,-1,2,1] has the largest sum = 6.
+        public void MaximumSubarray(int[] nums, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        //309. Best Time to Buy and Sell Stock with Cooldown https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+        /// <summary>
+        /// Say you have an array for which the ith element is the price of a given stock on day i.
+        /// Design an algorithm to find the maximum profit.You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:
+        /// You may not engage in multiple transactions at the same time(ie, you must sell the stock before you buy again).
+        /// After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)
+        /// </summary>
+        [Theory]
+        [InlineData(new[] { 1, 2, 3, 0, 2 }, 3)] // Explanation: transactions = [buy, sell, cooldown, buy, sell]
+        public void BestTimeToBuyAndSellStockWithCooldown(int[] prices, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
+
+        // 1. Two Sum https://leetcode.com/problems/two-sum/
+        // Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+        // You may assume that each input would have exactly one solution, and you may not use the same element twice.
+        [Theory]
+        [InlineData(new[] { 2, 7, 11, 15 }, 9, new [] { 0, 1 })] // Explanation: Because nums[0] + nums[1] = 2 + 7 = 9,
+        public void TwoSum(int[] nums, int target, int[] expected)
+        {
+            int[] ans = null;
+
+            Assert.Equal(expected, ans);
         }
     }
 }

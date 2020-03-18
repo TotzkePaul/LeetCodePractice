@@ -11,7 +11,7 @@ namespace LeetCodePractice
      * put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
      * The cache is initialized with a positive capacity.
      */
-    public class UnitTest2
+    public class LRUCacheUnitTests
     {
 
         [Fact]

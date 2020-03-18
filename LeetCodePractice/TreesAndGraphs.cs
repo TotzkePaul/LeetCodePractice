@@ -82,5 +82,23 @@ namespace LeetCodePractice
                 new object[] { new TreeNode(-10) { left = new TreeNode(9), right = new TreeNode(20) { left = new TreeNode(15), right = new TreeNode(7) } }, 42 }
             };
         }
+
+
+        [Theory]
+        [MemberData(nameof(GetConstructBinaryTreeFromPreorderAndInorderTraversalData))]
+        public void ConstructBinaryTreeFromPreorderAndInorderTraversal(int[] preorder, int[] inorder, TreeNode expected)
+        {
+            TreeNode result = null;
+
+            Assert.Equal(expected.val, result.val);
+        }
+
+        public static IEnumerable<object[]> GetConstructBinaryTreeFromPreorderAndInorderTraversalData()
+        {
+            return new[]
+            {
+                new object[] { new[] { 3, 9, 20, 15, 7 }, new[] { 9, 3, 15, 20, 7 }, new TreeNode(3) }
+            };
+        }
     }
 }
