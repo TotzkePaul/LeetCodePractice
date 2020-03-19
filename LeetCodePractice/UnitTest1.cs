@@ -685,7 +685,7 @@ namespace LeetCodePractice
         ///     Could you come up with a one-pass algorithm using only constant space?
         /// </summary>
         [Theory]
-        [InlineData(new [] { 2, 0, 2, 1, 1, 0 }, new [] { 0, 0, 1, 1, 2, 2 })] 
+        [InlineData(new[] { 2, 0, 2, 1, 1, 0 }, new[] { 0, 0, 1, 1, 2, 2 })]
         public void SortColors(int[] nums, int[] expected)
         {
             int[] ans = nums;
@@ -740,7 +740,7 @@ namespace LeetCodePractice
         ///     Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.
         /// </summary>
         [Theory]
-        [InlineData(2, new [] { 0, 1, 1 })]
+        [InlineData(2, new[] { 0, 1, 1 })]
         //[InlineData(5, new [] { 0, 1, 1, 2, 1, 2 })]
         public void CountingBits(int num, int[] expected)
         {
@@ -771,7 +771,7 @@ namespace LeetCodePractice
         /// Note: The length of temperatures will be in the range[1, 30000]. Each temperature will be an integer in the range[30, 100].
         /// </summary>
         [Theory]
-        [InlineData(new [] { 73, 74, 75, 71, 69, 72, 76, 73 }, new[] { 1, 1, 4, 2, 1, 1, 0, 0 })]
+        [InlineData(new[] { 73, 74, 75, 71, 69, 72, 76, 73 }, new[] { 1, 1, 4, 2, 1, 1, 0, 0 })]
         public void DailyTemperatures(int[] T, int[] expected)
         {
             int[] ans = T;
@@ -803,7 +803,7 @@ namespace LeetCodePractice
         /// Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
         /// </summary>
         [Theory]
-        [InlineData(new[] { 1, 2, 3, 4 }, new[] { 24, 12, 8, 6 })] 
+        [InlineData(new[] { 1, 2, 3, 4 }, new[] { 24, 12, 8, 6 })]
         public void ProductOfArrayExceptSelf(int[] nums, int[] expected)
         {
             int[] ans = null;
@@ -937,7 +937,7 @@ namespace LeetCodePractice
         /// You need to return the least number of intervals the CPU will take to finish all the given tasks.
         /// </summary>
         [Theory]
-        [InlineData(new char[] { 'A','A','A','B','B','B'}, 2, 8)] // Explanation: A -> B -> idle -> A -> B -> idle -> A -> B.
+        [InlineData(new char[] { 'A', 'A', 'A', 'B', 'B', 'B' }, 2, 8)] // Explanation: A -> B -> idle -> A -> B -> idle -> A -> B.
         public void TaskScheduler(char[] tasks, int n, int expected)
         {
             int ans = 0;
@@ -949,7 +949,7 @@ namespace LeetCodePractice
         // 42. Trapping Rain Water https://leetcode.com/problems/trapping-rain-water/
         // Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
         [Theory]
-        [InlineData(new [] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 }, 6)] 
+        [InlineData(new[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 }, 6)]
         public void TrappingRainWater(int[] height, int expected)
         {
             int ans = 0;
@@ -1046,6 +1046,7 @@ namespace LeetCodePractice
         /// Say you have an array for which the ith element is the price of a given stock on day i.
         /// Design an algorithm to find the maximum profit.You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:
         /// You may not engage in multiple transactions at the same time(ie, you must sell the stock before you buy again).
+        /// 
         /// After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)
         /// </summary>
         [Theory]
@@ -1062,12 +1063,26 @@ namespace LeetCodePractice
         // Given an array of integers, return indices of the two numbers such that they add up to a specific target.
         // You may assume that each input would have exactly one solution, and you may not use the same element twice.
         [Theory]
-        [InlineData(new[] { 2, 7, 11, 15 }, 9, new [] { 0, 1 })] // Explanation: Because nums[0] + nums[1] = 2 + 7 = 9,
+        [InlineData(new[] { 2, 7, 11, 15 }, 9, new[] { 0, 1 })] // Explanation: Because nums[0] + nums[1] = 2 + 7 = 9,
         public void TwoSum(int[] nums, int target, int[] expected)
         {
             int[] ans = null;
 
             Assert.Equal(expected, ans);
         }
+
+        // 215. Kth Largest Element in an Array https://leetcode.com/problems/kth-largest-element-in-an-array/
+        // Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
+        // Note: You may assume k is always valid, 1 <= k <= array's length.
+        [Theory]
+        [InlineData(new[] { 3, 2, 1, 5, 6, 4 }, 2, 5)]
+        //[InlineData(new[] { 3, 2, 3, 1, 2, 4, 5, 5, 6 }, 4, 4)]
+        public void KthLargestElement(int[] nums, int k, int expected)
+        {
+            int ans = 0;
+
+            Assert.Equal(expected, ans);
+        }
+
     }
 }

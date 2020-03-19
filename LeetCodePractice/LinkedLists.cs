@@ -268,5 +268,49 @@ namespace LeetCodePractice
                 new object[] { new ListNode(1), false } //Explanation: There is no cycle in the linked list.
             };
         }
+
+
+        // 21. Merge Two Sorted Lists https://leetcode.com/problems/merge-two-sorted-lists/
+        // Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+        [Theory]
+        [MemberData(nameof(GetMergeTwoSortedListsData))]
+        public void MergeTwoSortedLists(ListNode l1, ListNode l2, ListNode expected)
+        {
+            ListNode result = new ListNode(0);
+
+            CompareListNode(expected, result);
+        }
+
+        public static IEnumerable<object[]> GetMergeTwoSortedListsData()
+        {
+            // Input: 1->2->4, 1->3->4
+            // Output: 1->1->2->3->4->4
+            return new[]
+            {
+                new object[] { new ListNode(1) { next = new ListNode(2) { next = new ListNode(4) } }, new ListNode(1) { next = new ListNode(3) { next = new ListNode(4) } }, new ListNode(1) { next = new ListNode(1) { next = new ListNode(2) { next = new ListNode(3) { next = new ListNode(4) { next = new ListNode(4) } } } } } },
+            };
+        }
+
+        // 206. Reverse Linked List https://leetcode.com/problems/reverse-linked-list/
+        // Reverse a singly linked list.
+        // Follow up: A linked list can be reversed either iteratively or recursively.Could you implement both?
+        [Theory]
+        [MemberData(nameof(GetReverseLinkedListData))]
+        public void ReverseLinkedList(ListNode head, ListNode expected)
+        {
+            ListNode result = new ListNode(0);
+
+            CompareListNode(expected, result);
+        }
+
+        public static IEnumerable<object[]> GetReverseLinkedListData()
+        {
+            // Input: 1->2->3->4->5->NULL
+            // Output: 5->4->3->2->1->NULL
+            return new[]
+            {
+                new object[] { new ListNode(1) { next = new ListNode(2) { next = new ListNode(4) } }, new ListNode(1) { next = new ListNode(3) { next = new ListNode(4) } }, new ListNode(1) { next = new ListNode(1) { next = new ListNode(2) { next = new ListNode(3) { next = new ListNode(4) { next = new ListNode(4) } } } } } },
+            };
+        }
     }
 }
