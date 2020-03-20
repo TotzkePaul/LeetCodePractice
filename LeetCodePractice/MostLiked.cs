@@ -4,7 +4,7 @@ using Xunit;
 
 namespace LeetCodePractice
 {
-    public class UnitTest1
+    public class MostLiked
     {
         // 15. 3Sum https://leetcode.com/problems/3sum/
         [Fact]
